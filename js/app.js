@@ -40,14 +40,15 @@ function start(){
 
 }
 start();
+let starnum=3;
 let timer=0;
 let getdeckposition1 = document.querySelector('.deck');
- let getmove= document.querySelector(".moves")
+ const getmove= document.querySelector(".moves")
  let movescounter=1;
- let getCards = document.querySelectorAll('.card');
+ const getCards = document.querySelectorAll('.card');
  let cheak = [];
  let counter=0;
- let getstar= document.querySelectorAll(".fa-star")
+ const getstar= document.querySelectorAll(".fa-star")
  let arrstar=[];
  //push into an array to use ti for remove star
  getstar.forEach(el =>{
@@ -68,10 +69,12 @@ let getdeckposition1 = document.querySelector('.deck');
         el.addEventListener('click', function(d){     
 // to remove start after numbers of moves
             if(movescounter> 15 && movescounter <20){   
-         arrstar[0].classList.remove("fa-star")      
+         arrstar[0].classList.remove("fa-star")  
+         starnum=2; 
             }
             if(movescounter> 20 ){   
-                arrstar[1].classList.remove("fa-star")      
+                arrstar[1].classList.remove("fa-star")  
+                starnum=1 
                    }
             if (!el.classList.contains('show') && !el.classList.contains('open') && !el.classList.contains('match'))
             cheak.push(el);
@@ -100,7 +103,7 @@ let getdeckposition1 = document.querySelector('.deck');
                 let get= document.querySelector("#timer")
                 swal({
                     title: "CONGRATS!!",
-                    text: `you finish the game in :${get.innerHTML}`,
+                    text: `you finish the game in :${get.innerHTML} and you got ${starnum} start`,
                     icon: "success",
                     button: "Play agin",
                   })
@@ -117,6 +120,8 @@ let getdeckposition1 = document.querySelector('.deck');
  })
 }
 reload();
+
+
 
  
 
